@@ -1,0 +1,127 @@
+<template>
+    <div>
+        <div class="w-full lg:w-[900px] xl:w-[1100px] mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10">
+            <div class="w-full lg:w-[60%] xl:w-2/3 space-y-5">
+                <NuxtImg
+                    src="https://www.washingtonpost.com/resizer/q_Sj-osjhABCigGjPWnL5BfChoo=/arc-anglerfish-washpost-prod-washpost/public/OHBJ2SJ6W5JLRDPQLSOU4233EY.jpg"
+                    class="rounded-lg bg-gray-100 max-h-80 w-full relative bg-center object-cover"
+                />
+                <h2 class="text-xl md:text-2xl font-bold">30-Days Running Challenge</h2>
+                <div class="bg-backgroundSecondary border border-border rounded-lg p-4 flex items-center">
+                    <div class="avatar avatar-ring avatar-sm border cursor-pointer mr-3">
+                        <NuxtImg src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="avatar" />
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm md:text-base">Joshua William</p>
+                        <p class="text-content2 text-xs md:text-sm">~updated 12 days ago</p>
+                    </div>
+                </div>
+                <p class="text-content2 text-sm md:text-base text-justify">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci placeat ex sit aspernatur, magnam
+                    voluptatem quod minima, consequuntur est itaque amet vitae cupiditate! Reprehenderit obcaecati quia
+                    at? Vitae, impedit temporibus. Velit quam culpa esse nisi adipisci! Excepturi sit accusamus fugiat
+                    reiciendis harum, veritatis consectetur consequatur totam saepe incidunt quia nemo optio iusto
+                    minima! Expedita odio cumque explicabo corporis quidem numquam?
+                    <br /><br />
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto odio eius repellat iste nulla
+                    asperiores natus voluptatum vero dolorem, delectus quos ipsum sequi molestiae. Qui eum maxime
+                    cupiditate at explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quia
+                    ratione quam ex unde sequi autem facilis asperiores praesentium.
+                </p>
+                <span class="float-end text-sm text-sky-700 hover:underline font-semibold cursor-pointer">
+                    Read More
+                </span>
+            </div>
+            <div class="w-full lg:w-[40%] xl:w-1/3">
+                <h2 class="text-xl md:text-2xl font-bold mb-6">Challenge Rules</h2>
+                <div class="space-y-2 mb-8">
+                    <div v-for="rule in challengeRules" class="flex justify-start items-center space-x-3 p-2">
+                        <Icon :name="rule.icon" :size="rule.size" />
+                        <div class="flex flex-col">
+                            <p class="font-semibold text-base md:text-lg">{{ rule.title }}</p>
+                            <p class="text-content2 text-sm md:text-base">{{ rule.content }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-backgroundSecondary border border-border rounded-lg p-8 text-content2 flex flex-col items-center justify-center text-center"
+                >
+                    <span class="text-xl md:text-2xl font-bold">Challenge Not Started</span>
+                    <span class="text-sm">You will be notified when challenge started</span>
+                    <div class="flex items-center space-x-2 mt-6">
+                        <div v-for="count in countdown" class="btn btn-no-animation bg-border rounded-md w-12 text-lg">
+                            {{ count }}
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-rounded btn-error w-full mt-8">Join this Challenge</button>
+                <p class="text-content2 mt-6 text-lg font-semibold mb-2 text-center">Share with your friends</p>
+                <div class="flex justify-center items-center space-x-2">
+                    <button
+                        v-for="link in shareLinkIcons"
+                        @click="link.callback"
+                        class="btn btn-sm btn-circle btn-ghost border-2"
+                    >
+                        <Icon :name="link.icon" :size="link.size" :class="link.class" />
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="w-full lg:w-5/6 xl:w-4/5 mx-auto">
+            <h2 class="text-center font-bold mt-16 text-xl md:text-2xl">🔥 Leaderboards 🔥</h2>
+            <ChallengeLeaderboard />
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+const countdown = ["1d", "40h", "29m", "18s"];
+
+const challengeRules = [
+    {
+        icon: "fe:target",
+        size: "36",
+        title: "Target",
+        content: "20 minutes everyday",
+    },
+    {
+        icon: "ic:baseline-loop",
+        size: "36",
+        title: "Repeat On",
+        content: "daily",
+    },
+    {
+        icon: "mingcute:calendar-fill",
+        size: "36",
+        title: "Duration",
+        content: "11 January 2024 - 12 February 2024",
+    },
+];
+
+const shareLinkIcons = [
+    {
+        icon: "ic:baseline-whatsapp",
+        size: "28",
+        class: "text-green-500",
+        callback: () => {},
+    },
+    {
+        icon: "ic:baseline-facebook",
+        size: "28",
+        class: "text-blue-500",
+        callback: () => {},
+    },
+    {
+        icon: "skill-icons:instagram",
+        size: "26",
+        class: "",
+        callback: () => {},
+    },
+    {
+        icon: "simple-icons:x",
+        size: "24",
+        class: "",
+        callback: () => {},
+    },
+];
+</script>

@@ -1,28 +1,26 @@
 {
-  "name": "web",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint . --max-warnings 0"
-  },
-  "dependencies": {
-    "@repo/ui": "*",
-    "next": "^14.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@next/eslint-plugin-next": "^14.0.4",
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
-    "@types/eslint": "^8.56.1",
-    "@types/node": "^20.10.6",
-    "@types/react": "^18.2.46",
-    "@types/react-dom": "^18.2.18",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3"
-  }
+    "name": "nuxt-app",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "dependencies": {
+        "@nuxt/image": "^1.1.0",
+        "const-variables": "*",
+        "database": "*",
+        "rippleui": "^1.12.1",
+        "web": "*"
+    },
+    "devDependencies": {
+        "@nuxtjs/tailwindcss": "^6.10.3",
+        "nuxt": "^3.9.0",
+        "nuxt-icon": "^0.6.8",
+        "vue": "^3.4.5",
+        "vue-router": "^4.2.5"
+    }
 }
