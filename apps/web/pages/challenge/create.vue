@@ -3,14 +3,20 @@
         <div class="w-full lg:w-3/5">
             <ChallengeImageUpload />
             <div class="mt-8 w-full">
-                <div class="flex flex-col space-y-3 mb-8 w-full">
+                <div class="flex flex-col space-y-3 mb-6 w-full">
                     <label class="font-semibold">Challenge Name</label>
                     <input class="input max-w-full" placeholder="Ex. 30-Day No Sugar Challenge" />
                 </div>
-                <div class="flex flex-col space-y-3 mb-8 w-full">
+                <div class="flex flex-col space-y-3 mb-6 w-full">
+                    <label class="font-semibold">Challenge Category</label>
+                    <select class="select max-w-full">
+                        <option v-for="i in 5">Fitness</option>
+                    </select>
+                </div>
+                <div class="flex flex-col space-y-3 mb-6 w-full">
                     <label class="font-semibold">Challenge Description</label>
                     <textarea
-                        class="textarea resize-none max-w-full h-72"
+                        class="textarea resize-none max-w-full h-64"
                         placeholder="Ex. Reduce sugary amount for your blood!"
                     />
                 </div>
@@ -40,7 +46,7 @@
                         <div class="flex items-center space-x-2">
                             <input type="number" class="input w-20" placeholder="0" min="0" />
                             <input type="text" class="input max-w-56" placeholder="Unit Type: Ex. times, steps" />
-                            <span>per day</span>
+                            <span class="hidden lg:block">per day</span>
                         </div>
                     </div>
                 </div>

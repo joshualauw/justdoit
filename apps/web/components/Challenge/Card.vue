@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-xl border-2 border-border hover:scale-[1.02] hover:brightness-90 cursor-pointer">
+    <div class="rounded-xl border-2 border-border hover:scale-[1.02] hover:rotate-1 hover:brightness-90 cursor-pointer">
         <NuxtLink to="/challenge/as92kmv9asd9" class="relative">
             <NuxtImg
                 src="https://www.washingtonpost.com/resizer/q_Sj-osjhABCigGjPWnL5BfChoo=/arc-anglerfish-washpost-prod-washpost/public/OHBJ2SJ6W5JLRDPQLSOU4233EY.jpg"

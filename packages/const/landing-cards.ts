@@ -30,3 +30,5 @@ export const landingCards = [
         description: "Build streaks and conquer daily challenges",
     },
 ];
+
+export const challengeTabs = ["My Progress", "Discussion", "Leaderboards", "About"];

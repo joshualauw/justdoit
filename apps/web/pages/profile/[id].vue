@@ -35,7 +35,29 @@
                 <ProfileMotivationalCard />
                 <div class="w-full lg:w-[45%] border-2 border-border rounded-xl p-6">
                     <h3 class="mb-6">Challenge History</h3>
+                    <div class="space-y-6">
+                        <div
+                            v-for="i in 4"
+                            class="rounded-full border border-border py-2 px-4 max-h-20 relative flex items-center cursor-pointer hover:scale-[1.01]"
+                        >
+                            <NuxtImg
+                                src="https://www.washingtonpost.com/resizer/q_Sj-osjhABCigGjPWnL5BfChoo=/arc-anglerfish-washpost-prod-washpost/public/OHBJ2SJ6W5JLRDPQLSOU4233EY.jpg"
+                                class="absolute top-0 left-0 w-20 lg:w-32 h-full bg-center object-cover rounded-full"
+                            />
+                            <div class="ml-[4.5rem] lg:ml-[7.5rem]">
+                                <p class="font-semibold text-sm lg:text-base">30-Day Running Challenge</p>
+                                <p class="text-content2 text-xs lg:text-sm">11 January 2024 - 12 February 2024</p>
+                            </div>
+                        </div>
+                        <a class="link link-underline-hover text-sm text-primary float-right">View More >></a>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="w-full md:w-[750px] lg:w-[1000px] xl:w-[1100px] mx-auto">
+            <h1 class="text-xl lg:text-2xl font-bold my-8">Published Challenges</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <ChallengeCard v-for="i in 8" />
             </div>
         </div>
     </div>

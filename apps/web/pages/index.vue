@@ -5,14 +5,15 @@
         <button @click="navigateTo('/challenge')" class="btn btn-secondary btn-md md:btn-lg mt-5 md:mt-8">
             Get Started 🚀
         </button>
-        <div class="mt-16 md:grid grid-cols-2 xl:grid-cols-3 gap-8 w-1/2 hidden">
+        <div class="mt-20 hidden lg:flex w-[900px] xl:w-[1000px] mx-auto h-[200px]">
             <div
-                v-for="card in landingCards"
-                class="flex flex-col cursor-pointer text-center p-4 rounded-lg hover:scale-105"
+                v-for="(card, i) in landingCards"
+                :class="{ 'self-end': i % 2 == 0 }"
+                class="flex flex-col cursor-pointer text-center rounded-lg p-2 hover:scale-105"
             >
-                <Icon :name="card.icon" size="56" class="self-center" />
-                <p class="font-semibold mt-3 text-xl">{{ card.text }}</p>
-                <p class="text-content2 mt-2">{{ card.description }}</p>
+                <Icon :name="card.icon" size="42" class="self-center" />
+                <p class="font-semibold mt-3 text-lg">{{ card.text }}</p>
+                <p class="text-content2 mt-2 text-sm">{{ card.description }}</p>
             </div>
         </div>
     </div>

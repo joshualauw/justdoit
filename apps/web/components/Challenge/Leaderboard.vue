@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-10 w-full lg:w-[700px] xl:w-[850px] mx-auto space-y-6">
+    <div class="w-full mx-auto space-y-6">
         <div
             v-for="i in 8"
             class="w-full py-4 px-8 rounded-full flex justify-between items-center border-[1.5px] border-warning"

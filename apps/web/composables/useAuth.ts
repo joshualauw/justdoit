@@ -1,3 +1,3 @@
 export default function () {
-    return useState("loggedUser", () => null);
+    return useState<boolean>("loggedUser", () => true);
 }
