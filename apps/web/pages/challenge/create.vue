@@ -8,15 +8,9 @@
                     <input class="input max-w-full" placeholder="Ex. 30-Day No Sugar Challenge" />
                 </div>
                 <div class="flex flex-col space-y-3 mb-6 w-full">
-                    <label class="font-semibold">Challenge Category</label>
-                    <select class="select max-w-full">
-                        <option v-for="i in 5">Fitness</option>
-                    </select>
-                </div>
-                <div class="flex flex-col space-y-3 mb-6 w-full">
                     <label class="font-semibold">Challenge Description</label>
                     <textarea
-                        class="textarea resize-none max-w-full h-64"
+                        class="textarea resize-none max-w-full h-[300px]"
                         placeholder="Ex. Reduce sugary amount for your blood!"
                     />
                 </div>

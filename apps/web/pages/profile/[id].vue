@@ -2,8 +2,8 @@
     <div>
         <div class="w-full absolute left-0 top-[75px] h-[350px] flex flex-col items-center justify-center">
             <NuxtImg
-                src="https://static.vecteezy.com/system/resources/previews/024/209/350/large_2x/aesthetic-mountain-synthwave-retrowave-wallpaper-with-a-cool-and-vibrant-neon-design-ai-generated-photo.jpg"
-                class="absolute top-0 left-0 w-screen h-[350px] bg-center object-cover"
+                src="https://wallpapers.com/images/hd/profile-picture-background-10tprnkqwqif4lyv.jpg"
+                class="absolute top-0 left-0 w-full h-[350px] bg-center object-cover"
             />
             <div class="z-40 flex flex-col items-center justify-center">
                 <div class="w-24 h-24 rounded-full border-2 border-border">
@@ -32,7 +32,7 @@
                         <p class="text-2xl font-bold">{{ stat.content }}</p>
                     </div>
                 </div>
-                <ProfileMotivationalCard />
+                <ProfileMotivationalCard class="w-full lg:w-[30%]" />
                 <div class="w-full lg:w-[45%] border-2 border-border rounded-xl p-6">
                     <h3 class="mb-6">Challenge History</h3>
                     <div class="space-y-6">
@@ -44,7 +44,7 @@
                                 src="https://www.washingtonpost.com/resizer/q_Sj-osjhABCigGjPWnL5BfChoo=/arc-anglerfish-washpost-prod-washpost/public/OHBJ2SJ6W5JLRDPQLSOU4233EY.jpg"
                                 class="absolute top-0 left-0 w-20 lg:w-32 h-full bg-center object-cover rounded-full"
                             />
-                            <div class="ml-[4.5rem] lg:ml-[7.5rem]">
+                            <div class="pl-[4.75rem] lg:pl-[7.5rem]">
                                 <p class="font-semibold text-sm lg:text-base">30-Day Running Challenge</p>
                                 <p class="text-content2 text-xs lg:text-sm">11 January 2024 - 12 February 2024</p>
                             </div>

@@ -1,3 +1,0 @@
-<template>
-    <div>discussion</div>
-</template>

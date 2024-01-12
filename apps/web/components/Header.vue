@@ -1,6 +1,6 @@
 <template>
     <div
-        class="py-4 px-5 md:px-8 items-center justify-between fixed top-0 left-0 flex w-full z-50 transition-all ease-out duration-300 border-border"
+        class="py-4 px-5 md:px-8 items-center justify-between fixed top-0 left-0 flex w-full z-50 transition-all ease-in-out duration-300 border-border"
         :class="{ 'border-b-2 shadow-md py-5 bg-pink-1': addBorder }"
     >
         <div class="flex items-center">
@@ -21,7 +21,7 @@
             </NuxtLink>
             <button v-if="!loggedUser" class="btn btn-outline-error">
                 <label @click="isLogin = true" for="login" class="cursor-pointer">Sign In</label>
-                <UIModal id="login" classes="w-[500px]">
+                <UIModal id="login" classes="w-[450px]">
                     <AuthLogin v-if="isLogin" @switch="isLogin = !isLogin" />
                     <AuthRegister v-else @switch="isLogin = !isLogin" />
                 </UIModal>
@@ -54,13 +54,8 @@
 </template>
 
 <script setup lang="ts">
+defineProps<{ addBorder: boolean }>();
+
 const loggedUser = useAuth();
 const isLogin = ref(true);
-
-const addBorder = ref(false);
-if (process.client) {
-    document.addEventListener("scroll", (e) => {
-        addBorder.value = window.scrollY >= 75;
-    });
-}
 </script>

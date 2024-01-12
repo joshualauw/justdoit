@@ -61,17 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div
-                    class="bg-backgroundPrimary border border-border rounded-lg p-8 text-content2 flex flex-col items-center justify-center text-center"
-                >
-                    <span class="text-xl md:text-2xl font-bold">Challenge Not Started</span>
-                    <span class="text-sm">You will be notified after join this challenge</span>
-                    <div class="flex items-center space-x-2 mt-6">
-                        <div v-for="count in countdown" class="btn btn-no-animation bg-border rounded-md w-12 text-lg">
-                            {{ count }}
-                        </div>
-                    </div>
-                </div>
+                <ChallengeCountdown />
                 <button
                     @click="navigateTo('/challenge/as92kmv9asd9/active')"
                     class="btn btn-rounded btn-error w-full mt-8"
@@ -79,27 +69,17 @@
                     Join this Challenge
                 </button>
                 <p class="text-content2 mt-6 text-lg font-semibold mb-2 text-center">Share with your friends</p>
-                <div class="flex justify-center items-center space-x-2">
-                    <button
-                        v-for="link in shareLinkIcons"
-                        @click="link.callback"
-                        class="btn btn-sm btn-circle btn-ghost"
-                    >
-                        <Icon :name="link.icon" :size="link.size" :class="link.class" />
-                    </button>
-                </div>
+                <ChallengeShare />
             </div>
         </div>
         <div class="w-full lg:w-5/6 xl:w-4/5 mx-auto">
             <h2 class="text-center font-bold mt-16 text-xl md:text-2xl">🔥 Leaderboards 🔥</h2>
-            <ChallengeLeaderboard class="mt-10 w-full lg:w-[700px] xl:w-[850px]" />
+            <ChallengeActiveLeaderboard class="mt-10 w-full lg:w-[700px] xl:w-[850px]" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const countdown = ["1d", "40h", "29m", "18s"];
-
 const challengeRules = [
     {
         icon: "fe:target",
@@ -118,33 +98,6 @@ const challengeRules = [
         size: "36",
         title: "Duration",
         content: "11 January 2024 - 12 February 2024",
-    },
-];
-
-const shareLinkIcons = [
-    {
-        icon: "ic:baseline-whatsapp",
-        size: "28",
-        class: "text-green-500",
-        callback: () => {},
-    },
-    {
-        icon: "ic:baseline-facebook",
-        size: "28",
-        class: "text-blue-500",
-        callback: () => {},
-    },
-    {
-        icon: "skill-icons:instagram",
-        size: "26",
-        class: "",
-        callback: () => {},
-    },
-    {
-        icon: "simple-icons:x",
-        size: "24",
-        class: "",
-        callback: () => {},
     },
 ];
 </script>

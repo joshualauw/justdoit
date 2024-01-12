@@ -31,4 +31,25 @@ export const landingCards = [
     },
 ];
 
-export const challengeTabs = ["My Progress", "Discussion", "Leaderboards", "About"];
+export const challengeTabs = [
+    {
+        name: "My Progress",
+        show: true,
+    },
+    {
+        name: "Discussion",
+        show: true,
+    },
+    {
+        name: "Leaderboards",
+        show: true,
+    },
+    {
+        name: "About",
+        show: true,
+    },
+    {
+        name: "History",
+        show: false,
+    },
+];

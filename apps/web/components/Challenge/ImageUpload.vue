@@ -1,6 +1,6 @@
 <template>
     <div
-        class="rounded-lg bg-backgroundSecondary border border-border h-[250px] relative group flex flex-col items-center justify-center"
+        class="rounded-lg bg-backgroundSecondary border border-border h-[275px] relative group flex flex-col items-center justify-center"
     >
         <div class="absolute top-4 right-4 hidden group-hover:flex items-center space-x-1">
             <button class="btn btn-primary btn-circle">

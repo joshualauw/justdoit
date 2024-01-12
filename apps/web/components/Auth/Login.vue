@@ -1,10 +1,10 @@
 <template>
     <div class="w-full text-center">
         <h3 class="text-xl md:text-2xl font-semibold mb-4">Login</h3>
-        <div class="space-y-3">
+        <form class="space-y-3">
             <input type="text" class="input input-rounded max-w-full" placeholder="Your email address..." />
             <input type="password" class="input input-rounded max-w-full" placeholder="Your password..." />
-        </div>
+        </form>
         <button @click="loggedUser = true" class="btn btn-rounded btn-error w-full mt-4">Login</button>
         <div class="divider divider-horizontal">-or-</div>
         <div class="flex items-center justify-center space-x-2 mt-2">
