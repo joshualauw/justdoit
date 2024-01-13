@@ -1,16 +1,14 @@
 {
-    "name": "database",
-    "version": "0.0.0",
-    "main": "./index.ts",
-    "types": "./index.ts",
+    "name": "@justdoit/database",
+    "version": "1.0.0",
+    "main": "dist/index.js",
     "scripts": {
-        "db:generate": "prisma generate",
-        "db:push": "prisma db push --skip-generate"
+        "db:generate": "npx prisma generate",
+        "db:push": "npx prisma db push --skip-generate",
+        "build": "tsc && npx prisma generate"
     },
     "dependencies": {
-        "@prisma/client": "latest"
-    },
-    "devDependencies": {
-        "prisma": "latest"
+        "@prisma/client": "latest",
+        "prisma": "^5.8.0"
     }
 }

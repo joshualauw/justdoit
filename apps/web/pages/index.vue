@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { landingCards } from "const-variables";
+import { landingCards } from "@justdoit/utils";
 
 definePageMeta({
     layout: "landing",

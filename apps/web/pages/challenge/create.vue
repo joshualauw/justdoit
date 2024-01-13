@@ -74,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import { shortenedDays } from "const-variables";
+import { shortenedDays } from "@justdoit/utils";
 
 definePageMeta({
     title: "New Challenge",

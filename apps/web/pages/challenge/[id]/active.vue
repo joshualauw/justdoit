@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { challengeTabs } from "const-variables";
+import { challengeTabs } from "@justdoit/utils";
 import Leaderboard from "@/components/Challenge/Active/Leaderboard.vue";
 import Discussion from "@/components/Challenge/Active/Discussion.vue";
 import Progress from "@/components/Challenge/Active/Progress.vue";

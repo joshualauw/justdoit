@@ -1,8 +1,8 @@
 {
-    "name": "@justdoit/interface",
+    "name": "@justdoit/utils",
     "version": "1.0.0",
     "description": "",
-    "main": "dist/index.js",
+    "main": "index.ts",
     "types": "index.ts",
     "scripts": {
         "build": "tsc",
@@ -10,8 +10,5 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "yup": "^1.3.3"
-    }
+    "license": "ISC"
 }
