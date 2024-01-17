@@ -1,8 +1,8 @@
 import {
   PipeTransform,
   Injectable,
-  HttpException,
   HttpStatus,
+  BadRequestException,
 } from '@nestjs/common';
 import { Schema, ValidationError as YupError } from 'yup';
 
@@ -17,7 +17,11 @@ export class ValidationPipe implements PipeTransform {
     } catch (err) {
       const _err = err as YupError;
       console.log(_err);
-      throw new HttpException({ errors: _err.errors }, HttpStatus.BAD_REQUEST);
+      throw new BadRequestException({
+        details: _err.errors,
+        statusCode: HttpStatus.BAD_REQUEST,
+        message: _err.name,
+      });
     }
   }
 }

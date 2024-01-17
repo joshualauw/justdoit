@@ -1,41 +1,67 @@
-import { ICreateUser } from '@justdoit/interface';
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { NotFoundError } from 'rxjs';
-import { PrismaService } from 'src/lib/prisma.service';
+import { ICreateUser, ISignInUser } from '@justdoit/interface';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { PrismaService } from '~/lib/prisma.service';
 import bcrypt from 'bcrypt';
+import { JwtService } from '@nestjs/jwt';
+import { exclude } from '@justdoit/utils';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private jwtService: JwtService,
+  ) {}
 
-  async createUser(body: ICreateUser) {
+  async createUser(payload: ICreateUser) {
     const isEmailSafe = await this.prisma.user.count({
-      where: { email: body.email },
+      where: { email: payload.email },
     });
 
     if (isEmailSafe > 0) {
-      throw new HttpException('email already used', HttpStatus.BAD_REQUEST);
+      throw new BadRequestException('email already used');
     }
 
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(body.password, salt);
+    const hashedPassword = await bcrypt.hash(payload.password, salt);
 
-    const newUser = await this.prisma.user.create({
+    const user = await this.prisma.user.create({
       data: {
-        email: body.email,
+        email: payload.email,
         password: hashedPassword,
         username: '@' + Date.now().toString(),
         display_name: '',
       },
     });
 
-    return newUser;
+    return user;
   }
 
-  async findOne() {
-    const user = await this.prisma.user.findFirst();
-    if (!user) throw new NotFoundError('user not found');
+  async signInUser(payload: ISignInUser) {
+    const user = await this.prisma.user.findFirst({
+      where: {
+        email: payload.email,
+      },
+    });
 
-    return user;
+    if (!user) {
+      throw new NotFoundException('user not found');
+    }
+
+    const isPasswordCorrect = bcrypt.compare(payload.password, user.password);
+    if (!isPasswordCorrect) {
+      throw new UnauthorizedException('invalid credentials');
+    }
+
+    const userPayload = exclude(user, ['password']);
+
+    return {
+      user: userPayload,
+      access_token: await this.jwtService.signAsync(userPayload),
+    };
   }
 }

@@ -11,13 +11,69 @@ datasource db {
 }
 
 model User {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  email           String   @unique
-  display_name    String
-  username        String   @unique
-  profile_picture String?
-  premium         Boolean  @default(false)
-  password        String
-  createdAt       DateTime @default(now()) @db.Date
-  updatedAt       DateTime @updatedAt @db.Date
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  email         String       @unique
+  display_name  String       @default("")
+  username      String       @unique
+  profilePic    String?
+  backgroundPic String?
+  premium       Boolean      @default(false)
+  password      String
+  motivation    String?
+  createdAt     DateTime     @default(now()) @db.Date
+  updatedAt     DateTime     @updatedAt @db.Date
+  Challenge     Challenge[]
+  Member        Member[]
+  Discussion    Discussion[]
+}
+
+model Challenge {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  author      User         @relation(fields: [authorId], references: [id])
+  authorId    String       @db.ObjectId
+  banner      String?
+  description String
+  repeat      String[]
+  target      Int
+  unit        String
+  duration    String
+  isPublic    Boolean      @default(false)
+  isEnded     Boolean      @default(false)
+  createdAt   DateTime     @default(now()) @db.Date
+  updatedAt   DateTime     @updatedAt @db.Date
+  Member      Member[]
+  Discussion  Discussion[]
+}
+
+model Discussion {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  member      User      @relation(fields: [memberId], references: [id])
+  memberId    String    @db.ObjectId
+  Challenge   Challenge @relation(fields: [challengeId], references: [id])
+  challengeId String    @db.ObjectId
+  content     String
+  createdAt   DateTime  @default(now()) @db.Date
+  updatedAt   DateTime  @updatedAt @db.Date
+}
+
+model Member {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  challenge   Challenge  @relation(fields: [challengeId], references: [id])
+  challengeId String     @db.ObjectId
+  user        User       @relation(fields: [userId], references: [id])
+  userId      String     @db.ObjectId
+  today       Int
+  streak      Int
+  progress    Progress[]
+}
+
+type Progress {
+  day  DateTime
+  logs Logs[]
+}
+
+type Logs {
+  amount Int
+  time   String
 }

@@ -2,4 +2,12 @@
 export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@nuxt/image"],
+    build: {
+        transpile: ["@justdoit/utils"],
+    },
+    vite: {
+        optimizeDeps: {
+            include: ["@justdoit/utils > @justdoit/utils"],
+        },
+    },
 });
